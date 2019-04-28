@@ -1,0 +1,19 @@
+     1                                  segment .data 
+     2 00000000 48656C6C6F20776F72-     string1   db   "Hello world : ",0xa 
+     3 00000009 6C64203A200A       
+     4                                  
+     5                                   segment .bss
+     6                                   segment .text
+     7                                   global _start
+     8                                   _start:
+     9 00000000 B9[00000000]            	MOV ECX, string1 
+    10 00000005 BA0F000000              	mov EDX, 15
+    11 0000000A B804000000              	mov EAX,4
+    12 0000000F BB01000000              	mov EBX,1
+    13 00000014 CD80                    	int 0x80
+    14                                  done:
+    15 00000016 B801000000                     mov EAX,1 
+    16 0000001B 31DB                           xor EBX,EBX
+    17 0000001D CD80                           int 0x80
+    18                                  
+    19                                  
